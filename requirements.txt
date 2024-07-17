@@ -1,0 +1,5 @@
+selenium
+allure-pytest
+webdriver-manager
+pytest
+pytest-xdist
