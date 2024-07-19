@@ -1,0 +1,41 @@
+from pages.page import Page
+from locators.personal_account import PersonalAccountLocators
+
+
+class PersonalAccountPage(Page):
+    def __init__(self, driver, main_url) -> None:
+        super().__init__(driver, main_url)
+        self.personal_account_locators = PersonalAccountLocators()
+
+    def click_personal_account_button(self):
+        super().click_on_element_with_javascript(
+            self.personal_account_locators.personal_account_button
+        )
+
+    def wait_personal_account_is_loaded(self):
+        super().wait_for_load_page(self.personal_account_locators.profile_button)
+
+    def check_personal_account_is_loaded(self):
+        return super().check_page_load(self.personal_account_locators.profile_button)
+
+    def click_order_history_button(self):
+        super().click_on_element_with_javascript(
+            self.personal_account_locators.order_history_button
+        )
+
+    def wait_created_order_is_visiable(self):
+        super().wait_for_load_page(self.personal_account_locators.created_order)
+
+    def check_created_order_is_visiable(self):
+        return super().check_page_load(self.personal_account_locators.created_order)
+
+    def click_account_exit_button(self):
+        super().click_on_element_with_javascript(
+            self.personal_account_locators.account_exit_button
+        )
+
+    def wait_login_page_loading(self):
+        super().wait_for_load_page(self.personal_account_locators.login_page_title)
+
+    def check_login_page_loading(self):
+        return super().check_page_load(self.personal_account_locators.login_page_title)
