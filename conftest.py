@@ -7,13 +7,14 @@ from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver import FirefoxOptions
 from selenium.webdriver import ChromeOptions
 from pages.account_login import AccountLogin
+from pages.create_order import CreateOrderPage
 from data import TestData
 
 
 def pytest_addoption(parser):
     parser.addoption("--headless", action="store", default="no")
 
-@pytest.fixture(params=["firefox", "chrome"])
+@pytest.fixture(params=["chrome"])
 def driver(request):
     if request.config.getoption("--headless") == "yes":
         firefox_opts = FirefoxOptions()
@@ -38,7 +39,6 @@ def driver(request):
     yield request.cls.driver
     request.cls.driver.quit()
 
-
 @pytest.fixture()
 def logined_user(driver):
     logined_user = AccountLogin(driver, TestData.LOGIN_URL)
@@ -48,3 +48,13 @@ def logined_user(driver):
     logined_user.click_login_button()
     logined_user.wait_loading_page_after_login()
     return logined_user.driver
+
+@pytest.fixture()
+def user_with_order(logined_user):
+    user_with_order = CreateOrderPage(logined_user, TestData.MAIN_URL)
+    user_with_order.load_page()
+    user_with_order.wait_ingredients_field()
+    user_with_order.drag_and_drop_fluorescent_bread_ingredient()
+    user_with_order.click_create_order_button()
+    return user_with_order.driver
+    

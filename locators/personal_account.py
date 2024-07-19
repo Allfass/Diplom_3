@@ -8,3 +8,4 @@ class PersonalAccountLocators:
     profile_button = [By.XPATH, "//a[contains(text(), 'Профиль')]"]
     created_order = [By.XPATH, "//p[contains(text(), '#097238')]"]
     login_page_title = [By.XPATH, "//h2[contains(text(), 'Вход')]"]
+    

@@ -1,5 +1,6 @@
 from pages.page import Page
 from locators.personal_account import PersonalAccountLocators
+from helper import TestHelper
 
 
 class PersonalAccountPage(Page):
@@ -25,6 +26,9 @@ class PersonalAccountPage(Page):
 
     def wait_created_order_is_visiable(self):
         super().wait_for_load_page(self.personal_account_locators.created_order)
+
+    def get_order_by_id(self, id):
+        super().get_element_text(TestHelper.replacer(self.personal_account_locators.created_order, id))
 
     def check_created_order_is_visiable(self):
         return super().check_page_load(self.personal_account_locators.created_order)
