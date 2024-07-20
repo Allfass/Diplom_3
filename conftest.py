@@ -51,10 +51,14 @@ def logined_user(driver):
 
 @pytest.fixture()
 def user_with_order(logined_user):
+    result = []
     user_with_order = CreateOrderPage(logined_user, TestData.MAIN_URL)
     user_with_order.load_page()
     user_with_order.wait_ingredients_field()
     user_with_order.drag_and_drop_fluorescent_bread_ingredient()
     user_with_order.click_create_order_button()
-    return user_with_order.driver
+    user_with_order.get_order_id()
+    result.append(user_with_order.get_order_id())
+    result.append(user_with_order.driver)
+    return result
     
