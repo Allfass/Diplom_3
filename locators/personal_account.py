@@ -6,6 +6,6 @@ class PersonalAccountLocators:
     order_history_button = [By.XPATH, "//a[contains(text(), 'История заказов')]"]
     account_exit_button = [By.XPATH, "//button[contains(text(), 'Выход')]"]
     profile_button = [By.XPATH, "//a[contains(text(), 'Профиль')]"]
-    created_order = [By.XPATH, "//p[contains(text(), '#097238')]"]
+    created_order = [By.XPATH, "//p[contains(text(), '#098557')]"]
     login_page_title = [By.XPATH, "//h2[contains(text(), 'Вход')]"]
     
