@@ -14,7 +14,7 @@ from data import TestData
 def pytest_addoption(parser):
     parser.addoption("--headless", action="store", default="no")
 
-@pytest.fixture(params=["chrome"])
+@pytest.fixture(params=["chrome", "firefox"])
 def driver(request):
     if request.config.getoption("--headless") == "yes":
         firefox_opts = FirefoxOptions()

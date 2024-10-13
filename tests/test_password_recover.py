@@ -6,6 +6,8 @@ import allure
 
 @pytest.mark.usefixtures("driver")
 class TestPasswordRecover:
+    @allure.title('Проверка кнопки Восстановить пароль')
+    @allure.description('Переход на страницу восстановления пароля по кнопке Восстановить пароль')
     def test_password_recover_transition_to_page(self):
         recover_page = PasswordRecoverPage(self.driver, TestData.LOGIN_URL)
         recover_page.load_page()
@@ -13,6 +15,8 @@ class TestPasswordRecover:
         recover_page.wait_load_recover_page()
         assert recover_page.check_recover_page_is_loaded() is not None
 
+    @allure.title('Проверка поля Восстановить')
+    @allure.description('Ввод почты и клик по кнопке Восстановить')
     def test_enter_password_and_click_recover_button_transition_to_second_recover_stage(
         self,
     ):
@@ -22,6 +26,8 @@ class TestPasswordRecover:
         recover_page.click_recover_password_button()
         assert recover_page.check_second_recover_stage_is_loaded is not None
 
+    @allure.title('Проверка поля Восстановить')
+    @allure.description('Клик по кнопке показать/скрыть пароль делает поле активным — подсвечивает его')
     def test_click_eye_button_activate_css_style(self):
         recover_page = PasswordRecoverPage(self.driver, TestData.RECOVER_PASSWORD_URL)
         recover_page.load_page()
