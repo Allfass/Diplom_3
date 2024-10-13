@@ -25,14 +25,3 @@ class OrderFeed(BasePage):
     
     def get_order_by_id(self, id):
         super().get_element_text(TestHelper.replacer(self.order_feed_locators.order_by_id, id))
-        
-    def get_completed_all_time_text(self):
-        super().get_element_text(self.order_feed_locators.complete_all_time)
-        
-    def get_completed_today_text(self):
-        super().get_element_text(self.order_feed_locators.complete_today)
-        
-    def get_today_order_by_id(self, id):
-        super().get_element_text(TestHelper.replacer(self.order_feed_locators.today_in_work, id))
-        
-    
