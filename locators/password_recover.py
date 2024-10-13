@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 class PasswordRecoverLocators:
     link_to_page = [
         By.XPATH,
-        "//a[contains(text(), 'Восстановить пароль') and contains(@class, 'Auth_link__1fOlj')]",
+        "//a[contains(text(), 'Восстановить пароль') and contains(@class, 'Auth_link')]",
     ]
     title = [By.XPATH, "//h2[contains(text(), 'Восстановление пароля')]"]
     email_input = [
