@@ -18,8 +18,8 @@ class BasePage:
         return self.driver.find_element(*locator)
 
     @allure.step("Ждем загрузки элемента на странице")
-    def wait_for_load_page(self, locator):
-        WebDriverWait(self.driver, 10).until(
+    def wait_for_load_page(self, locator, second = 10):
+        WebDriverWait(self.driver, second).until(
             expected_conditions.visibility_of_element_located(locator)
         )
 
@@ -60,7 +60,7 @@ class BasePage:
         return self.driver.find_element(*locator).is_displayed()
 
     @allure.step('Ждём пока элемент станет невидимым')
-    def wait_invisible_element(self, locator):
-        WebDriverWait(self.driver, 10).until(
+    def wait_invisible_element(self, locator, second = 10):
+        WebDriverWait(self.driver, second).until(
             expected_conditions.invisibility_of_element_located(locator)
         )
