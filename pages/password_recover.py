@@ -1,8 +1,8 @@
 from locators.password_recover import PasswordRecoverLocators
-from pages.page import Page
+from pages.page import BasePage
 
 
-class PasswordRecoverPage(Page):
+class PasswordRecoverPage(BasePage):
     def __init__(self, driver, main_url) -> None:
         super().__init__(driver, main_url)
         self.password_recover_locators = PasswordRecoverLocators()

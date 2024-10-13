@@ -4,7 +4,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 import allure
 
 
-class Page:
+class BasePage:
     def __init__(self, driver, main_url) -> None:
         self.main_url = main_url
         self.driver = driver

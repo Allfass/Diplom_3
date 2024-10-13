@@ -1,9 +1,9 @@
-from pages.page import Page
+from pages.page import BasePage
 from locators.order_feed import OrderFeedLocators
 from helper import TestHelper
 
 
-class OrderFeed(Page):
+class OrderFeed(BasePage):
     def __init__(self, driver, main_url) -> None:
         super().__init__(driver, main_url)
         self.order_feed_locators = OrderFeedLocators()

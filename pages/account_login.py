@@ -1,9 +1,9 @@
 from locators.account_login import AccountLoginLocators
-from pages.page import Page
+from pages.page import BasePage
 from data import TestData
 
 
-class AccountLogin(Page):
+class AccountLogin(BasePage):
     def __init__(self, driver, main_url) -> None:
         super().__init__(driver, main_url)
         self.account_login_locators = AccountLoginLocators()

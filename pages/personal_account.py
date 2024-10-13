@@ -1,9 +1,9 @@
-from pages.page import Page
+from pages.page import BasePage
 from locators.personal_account import PersonalAccountLocators
 from helper import TestHelper
 
 
-class PersonalAccountPage(Page):
+class PersonalAccountPage(BasePage):
     def __init__(self, driver, main_url) -> None:
         super().__init__(driver, main_url)
         self.personal_account_locators = PersonalAccountLocators()

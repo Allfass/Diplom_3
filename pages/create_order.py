@@ -1,9 +1,9 @@
-from pages.page import Page
+from pages.page import BasePage
 import time
 from locators.create_order import CreateOrderLocators
 
 
-class CreateOrderPage(Page):
+class CreateOrderPage(BasePage):
     def __init__(self, driver, main_url) -> None:
         super().__init__(driver, main_url)
         self.create_order_locators = CreateOrderLocators()
